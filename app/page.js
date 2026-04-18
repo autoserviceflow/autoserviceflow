@@ -105,24 +105,24 @@ const pricing = [
   {
     name: "Pilot Launch",
     tag: "Best for businesses testing AI automation",
-    setup: "$299", setupLocal: "Rp4.800.000",
-    monthly: "$150/mo", monthlyLocal: "Rp2.400.000/mo",
+    setup: "$299",
+    monthly: "$150/mo",
     features: ["1 channel (WhatsApp or web widget)", "Up to 200 conversations/month", "Basic conversation flow", "FAQ up to 10 questions", "Email support"],
     cta: "Get Started", highlight: false,
   },
   {
     name: "Growth Automation",
     tag: "For active businesses managing regular inquiries",
-    setup: "$799", setupLocal: "Rp12.800.000",
-    monthly: "$299/mo", monthlyLocal: "Rp4.800.000/mo",
+    setup: "$799",
+    monthly: "$299/mo",
     features: ["2 channels (WhatsApp + web widget)", "Up to 600 conversations/month", "Booking flow + FAQ up to 20 questions", "3 flow updates/month", "Priority email support"],
     cta: "Get Started", highlight: true,
   },
   {
     name: "Full Suite",
     tag: "Multi-channel automation with advanced workflows",
-    setup: "Custom", setupLocal: "Rp15.000.000+",
-    monthly: "From $500/mo", monthlyLocal: "From Rp8.000.000/mo",
+    setup: "Custom",
+    monthly: "From $500/mo",
     features: ["Multi-channel setup", "Unlimited conversations (fair use)", "Custom integrations", "Dedicated support", "Weekly check-in call"],
     cta: "Get a Quote", highlight: false,
   },
@@ -427,12 +427,10 @@ export default function Home() {
                   <div style={{ marginBottom: "0.3rem" }}>
                     <div style={{ fontSize: "0.68rem", fontWeight: 700, color: "#94a3b8", letterSpacing: "0.07em", marginBottom: "0.2rem" }}>ONE-TIME SETUP FEE</div>
                     <div style={{ fontWeight: 800, fontSize: "1.8rem", letterSpacing: "-0.5px", color: p.highlight ? "#fff" : navy, lineHeight: 1 }}>{p.setup}</div>
-                    <div style={{ fontSize: "0.76rem", color: p.highlight ? "#64748b" : "#94a3b8", marginTop: "0.15rem" }}>{p.setupLocal}</div>
                   </div>
                   <div style={{ background: p.highlight ? "rgba(20,184,166,0.15)" : "#f0fdfa", borderRadius: "8px", padding: "0.7rem 0.9rem", marginTop: "0.9rem", border: `1px solid ${p.highlight ? "rgba(20,184,166,0.3)" : "#99f6e4"}` }}>
                     <div style={{ fontSize: "0.68rem", fontWeight: 700, color: teal, letterSpacing: "0.07em", marginBottom: "0.15rem" }}>MONTHLY PLAN (MANDATORY)</div>
                     <div style={{ fontWeight: 800, fontSize: "1.15rem", color: p.highlight ? "#5eead4" : "#0d9488" }}>{p.monthly}</div>
-                    <div style={{ fontSize: "0.73rem", color: p.highlight ? "#64748b" : "#64748b" }}>{p.monthlyLocal}</div>
                   </div>
                 </div>
                 <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.8rem", display: "flex", flexDirection: "column", gap: "0.55rem", flex: 1 }}>
