@@ -3,7 +3,7 @@ import { useState } from "react";
 
 // ─── CONFIGURATION — update these before deploying ───────────────────────────
 const CALENDLY_URL = "https://calendly.com/YOUR_LINK"; // replace with your Calendly link
-const CONTACT_EMAIL = "hello@autoserviceflow.com";
+const CONTACT_EMAIL = "helloautoserviceflow@gmail.com";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 const industries = [
