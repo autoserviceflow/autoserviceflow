@@ -9,8 +9,10 @@ export async function POST(request) {
     const { full_name, company_name, email, country, message } = body;
 
     const RESEND_API_KEY = process.env.RESEND_API_KEY;
-    const FROM_EMAIL = "hello@autoserviceflow.com";
-    const OWNER_EMAIL = "hello@autoserviceflow.com";
+    //const FROM_EMAIL = "hello@autoserviceflow.com";
+    //const OWNER_EMAIL = "hello@autoserviceflow.com";
+    const FROM_EMAIL = "onboarding@resend.dev"; // Resend's free test sender — no domain needed
+    const OWNER_EMAIL = "helloautoserviceflow@gmail.com"; // your real Gmail
 
     // ── EMAIL A — Alert to you ────────────────────────────────────────────────
     const alertEmail = {
@@ -125,7 +127,8 @@ export async function POST(request) {
       return res.json();
     };
 
-    await Promise.all([sendEmail(alertEmail), sendEmail(autoReply)]);
+    //await Promise.all([sendEmail(alertEmail), sendEmail(autoReply)]);
+    await Promise.all([sendEmail(alertEmail)]);
 
     return Response.json({ success: true }, { status: 200 });
   } catch (err) {
