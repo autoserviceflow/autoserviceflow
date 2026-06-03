@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 // ─── CONFIGURATION ────────────────────────────────────────────────────────────
 const CALENDLY_URL = "https://calendly.com/YOUR_LINK"; // replace with your Calendly link
@@ -361,12 +362,16 @@ export default function Home() {
       <nav style={{ background:C.navy, position:"sticky", top:0, zIndex:100, borderBottom:"1px solid rgba(255,255,255,0.08)" }}>
         <div style={{ maxWidth:"1100px", margin:"0 auto", padding:"0 2rem", display:"flex", justifyContent:"space-between", alignItems:"center", height:"64px" }}>
           {/* Logo — replace src with Next.js Image after logos are added */}
-          <div style={{ fontFamily:"Manrope,sans-serif", fontWeight:800, fontSize:"1.15rem", color:"#fff" }}>
-            {
-                <Image src="/logos/logo-color.png" alt="AutoServiceFlow" height={40} width={200} style={{objectFit:"contain"}} />
-                 }
-            Auto<span style={{ color:C.cyan }}>Service</span>Flow
-          </div>
+          <Image
+              src="/logos/logo-white.png"
+              alt="AutoServiceFlow"
+              height={40}
+              width={220}
+              style={{ objectFit: "contain" }}
+              priority
+            />
+         
+          
           {/* Desktop nav */}
           <div style={{ display:"flex", gap:"2rem", alignItems:"center" }}>
             <a href="#how-it-works" style={{ fontSize:"0.875rem", color:"rgba(255,255,255,0.8)", fontWeight:500 }}>How it Works</a>
@@ -743,12 +748,13 @@ export default function Home() {
         <div style={{ maxWidth:"1000px", margin:"0 auto", display:"grid", gridTemplateColumns:"1fr auto 1fr", gap:"2rem", alignItems:"start" }}>
           {/* Left — logo + tagline */}
           <div>
-            {
-                <Image src="/logos/logo-white.png" alt="AutoServiceFlow" height={50} width={250} style={{objectFit:"contain",marginBottom:"0.5rem"}} />
-                 }
-            <div style={{ fontFamily:"Manrope,sans-serif", fontWeight:800, fontSize:"1.2rem", color:"#fff", marginBottom:"0.5rem" }}>
-              Auto<span style={{ color:C.cyan }}>Service</span>Flow
-            </div>
+            <Image
+              src="/logos/logo-white.png"
+              alt="AutoServiceFlow"
+              height={44}
+              width={220}
+              style={{ objectFit: "contain", marginBottom: "0.5rem" }}
+            />
             <p style={{ fontSize:"0.82rem", fontStyle:"italic", color:"rgba(255,255,255,0.5)", lineHeight:1.5 }}>
               Your Business Runs 24/7 — While You Sleep
             </p>
