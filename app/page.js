@@ -126,33 +126,74 @@ const useCases = [
   },
 ];
 
+// ─── PRICING DATA (v13 — updated per Task 1) ──────────────────────────────────
 const pricing = [
   {
-    name: "Basic",
-    desc: "For businesses starting with AI automation",
-    setup: "From $299 setup",
-    monthly: "+ from $99/month",
-    features: ["1 channel", "Standard conversation flow", "Unlimited FAQ knowledge base"],
-    highlight: false,
+    name: "Starter",
+    credits: "2,500 credits/mo",
+    channels: 1,
+    price: 149,
+    bestFor: "Solo operator · Small business",
+    highlighted: false,
+    badge: null,
   },
   {
-    name: "Standard",
-    desc: "For active businesses with regular customer enquiries",
-    setup: "From $599 setup",
-    monthly: "+ from $199/month",
-    features: ["1–2 channels", "Booking flow included", "Lead management setup"],
-    highlight: true,
+    name: "Growth",
+    credits: "4,500 credits/mo",
+    channels: 2,
+    price: 279,
+    bestFor: "Active business · 2 channels",
+    highlighted: false,
+    badge: null,
   },
   {
-    name: "Advanced",
-    desc: "For complex workflows and multi-channel businesses",
-    setup: "From $1,200 setup",
-    monthly: "+ from $349/month",
-    features: ["3+ channels or voice", "Custom integrations", "Unlimited FAQ + document search"],
-    highlight: false,
+    name: "Business",
+    credits: "9,000 credits/mo",
+    channels: 3,
+    price: 499,
+    bestFor: "High volume · Image · Document search",
+    highlighted: true,
+    badge: "Most Popular",
+  },
+  {
+    name: "Scale",
+    credits: "18,000 credits/mo",
+    channels: 5,
+    price: 849,
+    bestFor: "Multi-channel · White-label · Priority support",
+    highlighted: false,
+    badge: null,
   },
 ];
 
+const creditGuide = [
+  {
+    type: "Text replies only",
+    credits: "1 per reply",
+    ch1: "~800/mo", ch2: "~1,600/mo", ch3: "~2,400/mo",
+    safePlan: "Starter",
+  },
+  {
+    type: "Mixed text + light image",
+    credits: "1–3 avg",
+    ch1: "~500/mo", ch2: "~1,000/mo", ch3: "~1,500/mo",
+    safePlan: "Growth",
+  },
+  {
+    type: "Heavy image analysis",
+    credits: "3 per reply",
+    ch1: "~300/mo", ch2: "~600/mo", ch3: "~900/mo",
+    safePlan: "Business",
+  },
+  {
+    type: "Document / manual search",
+    credits: "4 per reply",
+    ch1: "~250/mo", ch2: "~500/mo", ch3: "~750/mo",
+    safePlan: "Business",
+  },
+];
+
+// ─── WHY US & FAQS ────────────────────────────────────────────────────────────
 const whyUs = [
   { icon: "🚀", title: "No bloated enterprise software",       desc: "Purpose-built tools that do exactly what your business needs — nothing more." },
   { icon: "⚡", title: "Faster launch than building in-house", desc: "Live in 9–16 business days. Not months of internal planning and build time." },
@@ -169,7 +210,7 @@ const faqs = [
   },
   {
     q: "Can it answer phone calls?",
-    a: "Yes. Voice assistants are available as a premium option for businesses that handle high volumes of inbound calls. This is included in the Advanced plan and available as an add-on for Standard clients.",
+    a: "Yes. Voice assistants are available as a premium option for businesses that handle high volumes of inbound calls. This is included in the Business and Scale plans, and available as an add-on for Growth clients.",
   },
   {
     q: "Do I need any technical knowledge?",
@@ -201,6 +242,55 @@ const leadMgmtOptions = [
   { value: "manual",     label: "No — we manage manually" },
   { value: "not_sure",   label: "Not sure" },
 ];
+
+// ─── CREDIT GUIDE TABLE COMPONENT ────────────────────────────────────────────
+function CreditGuideTable() {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ marginTop: "24px" }}>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          background: "none", border: "none", cursor: "pointer",
+          color: C.cyan, fontSize: "14px", fontWeight: 600,
+          display: "flex", alignItems: "center", gap: "6px", padding: 0,
+          fontFamily: "inherit",
+        }}
+      >
+        {open ? "▲" : "▼"} How many credits do I need?
+      </button>
+      {open && (
+        <div style={{ marginTop: "16px", overflowX: "auto" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
+            <thead>
+              <tr style={{ background: C.navy }}>
+                {["Interaction Type", "Credits Used", "1 Channel", "2 Channels", "3 Channels", "Safe Plan"].map((h) => (
+                  <th key={h} style={{ padding: "10px 12px", color: C.white, textAlign: "left", fontWeight: 600 }}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {creditGuide.map((row, i) => (
+                <tr key={i} style={{ background: i % 2 === 1 ? C.grayLight : C.white }}>
+                  <td style={{ padding: "10px 12px", color: C.navy, fontWeight: 600 }}>{row.type}</td>
+                  <td style={{ padding: "10px 12px", color: C.grayMid }}>{row.credits}</td>
+                  <td style={{ padding: "10px 12px", color: C.grayMid }}>{row.ch1}</td>
+                  <td style={{ padding: "10px 12px", color: C.grayMid }}>{row.ch2}</td>
+                  <td style={{ padding: "10px 12px", color: C.grayMid }}>{row.ch3}</td>
+                  <td style={{ padding: "10px 12px" }}>
+                    <span style={{ background: C.cyanLight, color: C.cyan, padding: "2px 8px", borderRadius: "4px", fontWeight: 600 }}>
+                      {row.safePlan}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}
 
 // ─── LEAD FORM ────────────────────────────────────────────────────────────────
 function LeadForm({ onClose }) {
@@ -361,17 +451,14 @@ export default function Home() {
       {/* ── NAV ── */}
       <nav style={{ background:C.navy, position:"sticky", top:0, zIndex:100, borderBottom:"1px solid rgba(255,255,255,0.08)" }}>
         <div style={{ maxWidth:"1100px", margin:"0 auto", padding:"0 2rem", display:"flex", justifyContent:"space-between", alignItems:"center", height:"64px" }}>
-          {/* Logo — replace src with Next.js Image after logos are added */}
           <Image
-              src="/logos/logo-white.png"
-              alt="AutoServiceFlow"
-              height={40}
-              width={220}
-              style={{ objectFit: "contain" }}
-              priority
-            />
-         
-          
+            src="/logos/logo-white.png"
+            alt="AutoServiceFlow"
+            height={40}
+            width={220}
+            style={{ objectFit: "contain" }}
+            priority
+          />
           {/* Desktop nav */}
           <div style={{ display:"flex", gap:"2rem", alignItems:"center" }}>
             <a href="#how-it-works" style={{ fontSize:"0.875rem", color:"rgba(255,255,255,0.8)", fontWeight:500 }}>How it Works</a>
@@ -589,7 +676,7 @@ export default function Home() {
                 border: f.highlight ? `2px solid ${C.cyan}` : `1px solid ${C.grayBorder}`,
               }}>
                 <div style={{ fontSize:"1.5rem", marginBottom:"0.6rem" }}>{f.icon}</div>
-                <div style={{ fontWeight:700, fontSize:"0.95rem", marginBottom:"0.35rem", color: f.highlight ? C.navy : C.navy }}>{f.title}</div>
+                <div style={{ fontWeight:700, fontSize:"0.95rem", marginBottom:"0.35rem", color:C.navy }}>{f.title}</div>
                 <div style={{ fontSize:"0.84rem", color:C.grayMid, lineHeight:1.65 }}>{f.desc}</div>
                 {f.highlight && (
                   <div style={{ fontSize:"0.78rem", color:C.cyan, fontWeight:600, marginTop:"0.5rem" }}>
@@ -604,57 +691,130 @@ export default function Home() {
 
       {/* ── PRICING ── */}
       <section id="pricing" style={{ background:"#fff", padding:"4.5rem 2rem" }}>
-        <div style={{ maxWidth:"960px", margin:"0 auto" }}>
-          <div style={{ textAlign:"center", marginBottom:"2rem" }}>
+        <div style={{ maxWidth:"1100px", margin:"0 auto" }}>
+
+          {/* Heading */}
+          <div style={{ textAlign:"center", marginBottom:"2.5rem" }}>
             <h2 style={{ fontSize:"clamp(1.5rem,3vw,2.1rem)", fontWeight:800, letterSpacing:"-0.5px", marginBottom:"0.6rem" }}>
-              Custom Solutions for Serious Businesses
+              Simple, Transparent Pricing
             </h2>
-            <p style={{ color:C.grayMid, maxWidth:"520px", margin:"0 auto" }}>
-              Every business is different. Tell us about yours and we will send a detailed proposal within 1 business day.
+            <p style={{ color:C.grayMid, maxWidth:"560px", margin:"0 auto" }}>
+              Choose the plan that matches your channel count and volume. Setup fee is quoted individually for every build.
             </p>
           </div>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(270px,1fr))", gap:"1.5rem", marginBottom:"1.5rem" }}>
-            {pricing.map((p) => (
-              <div key={p.name} style={{
-                background: p.highlight ? C.navy : "#fff",
-                borderRadius:"16px", padding:"2rem 1.6rem",
-                border: p.highlight ? `2px solid ${C.cyan}` : `1px solid ${C.grayBorder}`,
-                position:"relative", display:"flex", flexDirection:"column",
+
+          {/* Four plan cards */}
+          <div style={{ display:"flex", gap:"16px", flexWrap:"wrap", marginBottom:"0" }}>
+            {pricing.map((plan) => (
+              <div key={plan.name} style={{
+                background: C.white,
+                border: `${plan.highlighted ? "2px" : "1px"} solid ${plan.highlighted ? C.cyan : C.grayBorder}`,
+                borderRadius:"12px", padding:"28px",
+                flex:1, minWidth:"220px",
+                position:"relative",
+                transform: plan.highlighted ? "scale(1.02)" : "scale(1)",
+                boxShadow: plan.highlighted
+                  ? "0 8px 24px rgba(0,200,212,0.15)"
+                  : "0 2px 8px rgba(0,0,0,0.06)",
+                display:"flex", flexDirection:"column",
               }}>
-                {p.highlight && (
-                  <div style={{ position:"absolute", top:"-13px", left:"50%", transform:"translateX(-50%)", background:C.cyan, color:"#fff", fontSize:"0.68rem", fontWeight:700, padding:"0.3rem 1rem", borderRadius:"999px", whiteSpace:"nowrap", letterSpacing:"0.06em" }}>
-                    MOST POPULAR
-                  </div>
+                {/* Badge */}
+                {plan.badge && (
+                  <span style={{
+                    position:"absolute", top:"14px", right:"14px",
+                    background:C.cyan, color:C.white,
+                    fontSize:"12px", fontWeight:700,
+                    padding:"4px 10px", borderRadius:"4px",
+                  }}>{plan.badge}</span>
                 )}
-                <div style={{ fontWeight:800, fontSize:"1.1rem", color: p.highlight ? "#fff" : C.navy, marginBottom:"0.3rem" }}>{p.name}</div>
-                <div style={{ fontSize:"0.82rem", color: p.highlight ? "#94a3b8" : C.grayMid, marginBottom:"1.4rem", lineHeight:1.5 }}>{p.desc}</div>
-                <div style={{ marginBottom:"0.2rem", fontWeight:800, fontSize:"1.3rem", color: p.highlight ? "#fff" : C.navy }}>{p.setup}</div>
-                <div style={{ fontSize:"0.85rem", color: p.highlight ? "#94a3b8" : C.grayMid, marginBottom:"1.5rem" }}>{p.monthly}</div>
-                <ul style={{ listStyle:"none", padding:0, margin:"0 0 1.8rem", display:"flex", flexDirection:"column", gap:"0.55rem", flex:1 }}>
-                  {p.features.map((f) => (
-                    <li key={f} style={{ fontSize:"0.86rem", display:"flex", gap:"0.55rem", alignItems:"flex-start", color: p.highlight ? "#cbd5e1" : C.gray }}>
-                      <span style={{ color:C.cyan, fontWeight:700, flexShrink:0 }}>✓</span>{f}
-                    </li>
-                  ))}
-                </ul>
-                <button onClick={openQuoteBot}
-                  style={{ width:"100%", padding:"0.8rem", borderRadius:"9px", background:C.cyan, color:"#fff", fontWeight:700, fontSize:"0.9rem", border:"none", cursor:"pointer" }}>
-                  Get a Quote
-                </button>
+                {/* Plan name */}
+                <div style={{ fontWeight:700, fontSize:"20px", color:C.navy, marginBottom:"12px" }}>
+                  {plan.name}
+                </div>
+                {/* Credits pill */}
+                <div style={{
+                  display:"inline-block", background:C.cyanLight, color:C.cyan,
+                  fontSize:"13px", fontWeight:600, padding:"3px 10px",
+                  borderRadius:"20px", marginBottom:"12px", alignSelf:"flex-start",
+                }}>{plan.credits}</div>
+                {/* Channels */}
+                <div style={{ fontWeight:700, color:C.navy, fontSize:"15px", marginBottom:"16px" }}>
+                  📡 {plan.channels} channel{plan.channels > 1 ? "s" : ""} included
+                </div>
+                {/* Price */}
+                <div style={{ marginBottom:"8px" }}>
+                  <span style={{ fontSize:"48px", fontWeight:800, color:C.navy }}>${plan.price}</span>
+                  <span style={{ fontSize:"18px", color:C.grayMid }}>/mo</span>
+                </div>
+                {/* Mandatory note */}
+                <div style={{ fontSize:"12px", color:C.cyan, fontWeight:600, marginBottom:"6px" }}>
+                  Monthly plan required to keep your assistant running
+                </div>
+                {/* Best for */}
+                <div style={{ fontSize:"13px", color:C.grayMid, marginBottom:"24px", flex:1 }}>{plan.bestFor}</div>
+                {/* CTA */}
+                <button
+                  onClick={openQuoteBot}
+                  style={{
+                    width:"100%", background:C.cyan, color:C.white,
+                    border:"none", borderRadius:"6px",
+                    padding:"12px", fontSize:"14px", fontWeight:700,
+                    cursor:"pointer", fontFamily:"inherit",
+                  }}
+                >Get a Quote</button>
               </div>
             ))}
           </div>
-          <p style={{ textAlign:"center", fontSize:"0.8rem", color:C.grayDim, lineHeight:1.8 }}>
-            Monthly plan is required to keep your assistant running 24/7.<br />
-            All plans include monthly performance report and lead management setup.<br />
-            Final pricing depends on your channels, volume, and requirements.
+
+          {/* Enterprise row */}
+          <div style={{
+            marginTop:"24px", padding:"20px 28px",
+            background:C.navy, borderRadius:"12px",
+            display:"flex", alignItems:"center",
+            justifyContent:"space-between", flexWrap:"wrap", gap:"16px",
+          }}>
+            <div>
+              <span style={{ fontWeight:700, fontSize:"18px", color:C.cyan }}>Enterprise</span>
+              <span style={{ fontSize:"14px", color:C.grayDim, marginLeft:"16px" }}>
+                Large organisations · Chains · Custom requirements
+              </span>
+            </div>
+            <div style={{ display:"flex", alignItems:"center", gap:"24px", flexWrap:"wrap" }}>
+              <span style={{ color:"#fff", fontSize:"15px" }}>Unlimited channels · Custom credits · Custom pricing</span>
+              <button
+                onClick={openQuoteBot}
+                style={{
+                  background:C.cyan, color:C.white, border:"none",
+                  borderRadius:"6px", padding:"10px 20px",
+                  fontSize:"14px", fontWeight:700, cursor:"pointer", fontFamily:"inherit",
+                }}
+              >Contact Us</button>
+            </div>
+          </div>
+
+          {/* Credit guide — collapsible */}
+          <CreditGuideTable />
+
+          {/* Setup fee note */}
+          <p style={{ textAlign:"center", color:C.grayMid, fontSize:"14px", marginTop:"24px" }}>
+            Setup fees start from <strong style={{ color:C.navy }}>$799</strong> — quoted individually based on your assistant type and complexity.
           </p>
-          <p style={{ textAlign:"center", marginTop:"0.8rem" }}>
+
+          {/* Annual note */}
+          <p style={{ textAlign:"center", color:C.grayMid, fontSize:"14px", marginTop:"8px" }}>
+            Prefer to pay annually?{" "}
+            <span style={{ color:C.cyan, fontWeight:600 }}>Get 2 months free</span>
+            {" "}— ask us about our annual rate.
+          </p>
+
+          {/* Not sure prompt */}
+          <p style={{ textAlign:"center", marginTop:"1rem" }}>
             <button onClick={openQuoteBot}
               style={{ background:"none", border:"none", color:C.cyan, fontSize:"0.88rem", fontWeight:600, cursor:"pointer", fontFamily:"inherit" }}>
               Not sure which plan? Chat with our AI to find out →
             </button>
           </p>
+
         </div>
       </section>
 
