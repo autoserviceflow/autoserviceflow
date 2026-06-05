@@ -1,0 +1,6 @@
+# AutoServiceFlow robots.txt
+User-agent: *
+Disallow: /demo
+
+# Demo page is privately shared — not for public indexing
+# Anyone with the direct link can still access: autoserviceflow.com/demo
