@@ -122,7 +122,7 @@ function DemoPage() {
           background: C.white,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', color: C.grayMid }}>
+          <div id="asf-widget-placeholder" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', color: C.grayMid }}>
             <div className="asf-loader" />
             <span style={{ fontSize: '14px', fontFamily: 'Inter, Arial, sans-serif' }}>Loading AI assistant…</span>
           </div>
