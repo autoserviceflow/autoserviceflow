@@ -62,12 +62,8 @@ function DemoPage() {
           border-radius: 50%;
           animation: asf-spin 0.9s linear infinite;
         }
-        .demo-context-label { color: #94a3b8; font-size: 13px; }
         @media (max-width: 640px) {
-          .demo-context-label { display: none !important; }
-          .demo-headline { font-size: 24px !important; }
-          .demo-instruction { font-size: 14px !important; }
-          #asf-demo-widget-container { height: calc(100dvh - 220px) !important; border-radius: 8px !important; }
+          #asf-demo-widget-container { height: calc(100dvh - 160px) !important; border-radius: 8px !important; }
           .demo-footer-inner { flex-direction: column !important; gap: 6px !important; text-align: center !important; }
         }
       `}</style>
@@ -80,48 +76,37 @@ function DemoPage() {
         height: '72px',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         flexShrink: 0,
       }}>
         <span style={{ color: C.white, fontWeight: 800, fontSize: '20px', letterSpacing: '-0.3px' }}>
           AutoServiceFlow
         </span>
-        <span className="demo-context-label">
-          Intermac Master 23&nbsp;&nbsp;·&nbsp;&nbsp;문제 해결 데모
-        </span>
       </header>
-
-      {/* ── HERO ───────────────────────────────────────────────────── */}
-      <section style={{ textAlign: 'center', padding: '48px 24px 36px', flexShrink: 0 }}>
-        <h1 className="demo-headline" style={{
-          color: C.navy, fontSize: '32px', fontWeight: 800,
-          margin: '0 0 16px', letterSpacing: '-0.5px',
-        }}>
-          AI 기술 지원 어시스턴트 — 데모 버전
-        </h1>
-        <p className="demo-instruction" style={{
-          color: C.grayMid, fontSize: '16px', lineHeight: 1.65,
-          maxWidth: '520px', margin: '0 auto',
-        }}>
-          안녕하세요라고 입력하여 시작하세요. AI 어시스턴트가 기계 문제를 진단하고 관련 회로도를 보내드립니다.
-        </p>
-      </section>
 
       {/* ── WIDGET AREA ────────────────────────────────────────────── */}
       <section style={{
-        flex: 1, padding: '0 24px 56px',
-        display: 'flex', justifyContent: 'center', alignItems: 'flex-start',
+        flex: 1,
+        padding: '40px 24px 40px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
       }}>
         <div id="asf-demo-widget-container" style={{
-          maxWidth: '480px', width: '100%', height: '560px',
+          maxWidth: '480px', width: '100%', height: '600px',
           borderRadius: '12px', overflow: 'hidden',
           boxShadow: '0 8px 32px rgba(15,45,82,0.18)',
           background: C.white,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>
-          <div id="asf-widget-placeholder" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', color: C.grayMid }}>
+          <div id="asf-widget-placeholder" style={{
+            display: 'flex', flexDirection: 'column',
+            alignItems: 'center', gap: '12px', color: C.grayMid,
+          }}>
             <div className="asf-loader" />
-            <span style={{ fontSize: '14px', fontFamily: 'Inter, Arial, sans-serif' }}>AI 어시스턴트 로딩 중…</span>
+            <span style={{ fontSize: '14px', fontFamily: 'Inter, Arial, sans-serif' }}>
+              AI 어시스턴트 로딩 중…
+            </span>
           </div>
         </div>
       </section>
