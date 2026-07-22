@@ -36,26 +36,31 @@ const painPoints = [
   { icon: "📵", text: "Missed calls mean missed bookings — and they rarely call back" },
   { icon: "🔁", text: "Staff spend hours answering the same questions every day" },
   { icon: "📋", text: "Manual scheduling creates friction that turns customers away" },
-  { icon: "📉", text: "Support teams get overwhelmed at peak hours" },
+  { icon: "⭐", text: "One bad review sits on Google forever if nobody's watching" },
   { icon: "⚡", text: "Customers expect instant responses — even at midnight" },
 ];
 
-const whatWeBuild = [
-  { icon: "💬", title: "AI Chat Assistant",       desc: "Handle inquiries instantly on chat channels, any time of day." },
-  { icon: "📞", title: "AI Call Assistant",        desc: "Answer incoming calls, qualify requests, and route to staff." },
-  { icon: "📆", title: "Appointment Booking",      desc: "Let customers book without back-and-forth messaging." },
-  { icon: "🎯", title: "Lead Qualification",       desc: "Collect names, needs, urgency, and intent automatically." },
-  { icon: "🔧", title: "Troubleshooting Support",  desc: "Resolve common issues before escalating to your team." },
-  { icon: "🤝", title: "Human Handover",           desc: "Route complex or urgent conversations to your staff instantly." },
-];
-
-const standardFeatures = [
-  { icon: "🤖", title: "AI assistant runs 24/7",          desc: "Never goes offline. Handles enquiries while you sleep.",         highlight: false },
-  { icon: "📚", title: "Unlimited FAQ knowledge base",    desc: "No question limits. Add as many answers as your business needs.", highlight: false },
-  { icon: "📊", title: "Monthly performance report",      desc: "Sent on the 1st. See your leads, conversations, and trends.",    highlight: true  },
-  { icon: "📡", title: "Uptime monitoring",               desc: "We watch your assistant around the clock.",                      highlight: false },
-  { icon: "📧", title: "Email support",                   desc: "Direct access to the team that built your assistant.",           highlight: false },
-  { icon: "📤", title: "Lead data export anytime",        desc: "Your data is always yours. Export whenever you need it.",        highlight: false },
+// ─── SOLUTIONS (replaces old bot-type grid) ──────────────────────────────────
+const solutions = [
+  {
+    icon: "💬",
+    title: "AI Chat & Support Assistants",
+    desc: "Handles customer chats, bookings, troubleshooting, and lead capture — around the clock, on whatever channel your customers already use.",
+    linkLabel: "See a Live Example →",
+    linkHref: "/demo",
+    linkNote: "Built for a machine-service client — imagine this same logic trained on your business.",
+    external: false,
+  },
+  {
+    icon: "⭐",
+    title: "Reputation Protection — AutoReview",
+    desc: "We make sure only your 5-star reviews go public. Every other review gets captured privately so you can make it right — and every review on Google gets a warm, automatic reply.",
+    linkLabel: "Talk to Us About This →",
+    linkHref: null,
+    linkNote: "Our newest offering — ask us about early access.",
+    external: false,
+    isCTA: true,
+  },
 ];
 
 const useCases = [
@@ -126,91 +131,32 @@ const useCases = [
   },
 ];
 
-// ─── PRICING DATA (v13 — updated per Task 1) ──────────────────────────────────
-const pricing = [
-  {
-    name: "Starter",
-    credits: "2,500 credits/mo",
-    channels: 1,
-    price: 149,
-    bestFor: "Solo operator · Small business",
-    highlighted: false,
-    badge: null,
-  },
-  {
-    name: "Growth",
-    credits: "4,500 credits/mo",
-    channels: 2,
-    price: 279,
-    bestFor: "Active business · 2 channels",
-    highlighted: false,
-    badge: null,
-  },
-  {
-    name: "Business",
-    credits: "9,000 credits/mo",
-    channels: 3,
-    price: 499,
-    bestFor: "High volume · Image · Document search",
-    highlighted: true,
-    badge: "Most Popular",
-  },
-  {
-    name: "Scale",
-    credits: "18,000 credits/mo",
-    channels: 5,
-    price: 849,
-    bestFor: "Multi-channel · White-label · Priority support",
-    highlighted: false,
-    badge: null,
-  },
-];
-
-const creditGuide = [
-  {
-    type: "Text replies only",
-    credits: "1 per reply",
-    ch1: "~800/mo", ch2: "~1,600/mo", ch3: "~2,400/mo",
-    safePlan: "Starter",
-  },
-  {
-    type: "Mixed text + light image",
-    credits: "1–3 avg",
-    ch1: "~500/mo", ch2: "~1,000/mo", ch3: "~1,500/mo",
-    safePlan: "Growth",
-  },
-  {
-    type: "Heavy image analysis",
-    credits: "3 per reply",
-    ch1: "~300/mo", ch2: "~600/mo", ch3: "~900/mo",
-    safePlan: "Business",
-  },
-  {
-    type: "Document / manual search",
-    credits: "4 per reply",
-    ch1: "~250/mo", ch2: "~500/mo", ch3: "~750/mo",
-    safePlan: "Business",
-  },
-];
-
 // ─── WHY US & FAQS ────────────────────────────────────────────────────────────
 const whyUs = [
   { icon: "🚀", title: "No bloated enterprise software",       desc: "Purpose-built tools that do exactly what your business needs — nothing more." },
   { icon: "⚡", title: "Faster launch than building in-house", desc: "Live in 9–16 business days. Not months of internal planning and build time." },
   { icon: "🎯", title: "Tailored to your specific workflow",   desc: "Not templates. Built around how your business actually handles customers." },
   { icon: "👤", title: "Founder-led — you talk to the builder",desc: "You work directly with the person who designs and builds your system." },
-  { icon: "📡", title: "Flexible channels and tools",          desc: "Chat, voice, web widget — we choose what fits your customers best." },
-  { icon: "📈", title: "Scales as your business grows",        desc: "Start with one assistant. Expand channels and features as revenue grows." },
+  { icon: "📡", title: "Flexible channels and tools",          desc: "Chat, voice, review management, web widget — we choose what fits your business." },
+  { icon: "📈", title: "Runs 24/7, always reporting",          desc: "Your system never sleeps, and a monthly summary shows exactly what it's doing." },
 ];
 
 const faqs = [
+  {
+    q: "What exactly can you automate for my business?",
+    a: "It depends on where you're losing the most time or the most revenue — customer chats, appointment booking, troubleshooting support, or your Google review management. We start with a conversation about your business, then recommend the right starting point.",
+  },
+  {
+    q: "What is AutoReview?",
+    a: "AutoReview protects your Google rating. Customers are guided so only 5-star ratings go public — anything lower is captured privately so you can make it right before it ever reaches Google. On top of that, every review that appears on your Google Business Profile gets a warm, automatic reply, so you're never leaving customers unanswered.",
+  },
   {
     q: "Can this work with messaging apps like WhatsApp?",
     a: "Yes. Chat channels are one of our primary deployment options, especially for businesses in Asia. Your customers message your business number and the AI handles replies automatically. We manage the full backend setup and ongoing maintenance.",
   },
   {
     q: "Can it answer phone calls?",
-    a: "Yes. Voice assistants are available as a premium option for businesses that handle high volumes of inbound calls. This is included in the Business and Scale plans, and available as an add-on for Growth clients.",
+    a: "Voice assistants are available for businesses that handle high volumes of inbound calls. Ask us during your first conversation and we'll let you know if it's the right fit for your business yet.",
   },
   {
     q: "Do I need any technical knowledge?",
@@ -218,11 +164,11 @@ const faqs = [
   },
   {
     q: "How fast can we launch?",
-    a: "Most builds go live in 9 to 16 business days after your deposit is received. We confirm your exact start date when we send your deposit payment link. Projects are scheduled in deposit order.",
+    a: "Most builds go live in 9 to 16 business days after your deposit is received. We confirm your exact start date after our first conversation about what you need.",
   },
   {
-    q: "Why is there a monthly plan?",
-    a: "Your assistant runs 24/7 on our infrastructure — AI processing, channel maintenance, uptime monitoring, and your monthly performance report never stop. The monthly plan covers all of this. Think of it the same way as website hosting: the service only works while it is running.",
+    q: "How does pricing work?",
+    a: "Every business is different — pricing depends on what you need automated, your volume, and your channels. Rather than guess with a generic price list, we quote individually after a short conversation about your business.",
   },
   {
     q: "What if I want to cancel?",
@@ -243,52 +189,36 @@ const leadMgmtOptions = [
   { value: "not_sure",   label: "Not sure" },
 ];
 
-// ─── CREDIT GUIDE TABLE COMPONENT ────────────────────────────────────────────
-function CreditGuideTable() {
-  const [open, setOpen] = useState(false);
+// ─── SHARED CTA BUTTON ────────────────────────────────────────────────────────
+// Single source of truth for the repeated call to action — change copy here,
+// it changes everywhere the button appears on the site.
+function CTAButton({ compact, onClick, href, variant = "primary" }) {
+  const isPrimary = variant === "primary";
+  const style = {
+    background: isPrimary ? C.cyan : "rgba(255,255,255,0.08)",
+    color: "#fff",
+    border: isPrimary ? "none" : "1px solid rgba(255,255,255,0.22)",
+    padding: compact ? "0.5rem 1.2rem" : "0.9rem 2rem",
+    borderRadius: compact ? "8px" : "9px",
+    fontWeight: compact ? 700 : 700,
+    fontSize: compact ? "0.875rem" : "1rem",
+    cursor: "pointer",
+    display: "inline-block",
+    fontFamily: "inherit",
+  };
+  const label = compact ? "Talk to Us" : "Talk to Us About Your Business";
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" style={style}>
+        {label}
+      </a>
+    );
+  }
   return (
-    <div style={{ marginTop: "24px" }}>
-      <button
-        onClick={() => setOpen(!open)}
-        style={{
-          background: "none", border: "none", cursor: "pointer",
-          color: C.cyan, fontSize: "14px", fontWeight: 600,
-          display: "flex", alignItems: "center", gap: "6px", padding: 0,
-          fontFamily: "inherit",
-        }}
-      >
-        {open ? "▲" : "▼"} How many credits do I need?
-      </button>
-      {open && (
-        <div style={{ marginTop: "16px", overflowX: "auto" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
-            <thead>
-              <tr style={{ background: C.navy }}>
-                {["Interaction Type", "Credits Used", "1 Channel", "2 Channels", "3 Channels", "Safe Plan"].map((h) => (
-                  <th key={h} style={{ padding: "10px 12px", color: C.white, textAlign: "left", fontWeight: 600 }}>{h}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {creditGuide.map((row, i) => (
-                <tr key={i} style={{ background: i % 2 === 1 ? C.grayLight : C.white }}>
-                  <td style={{ padding: "10px 12px", color: C.navy, fontWeight: 600 }}>{row.type}</td>
-                  <td style={{ padding: "10px 12px", color: C.grayMid }}>{row.credits}</td>
-                  <td style={{ padding: "10px 12px", color: C.grayMid }}>{row.ch1}</td>
-                  <td style={{ padding: "10px 12px", color: C.grayMid }}>{row.ch2}</td>
-                  <td style={{ padding: "10px 12px", color: C.grayMid }}>{row.ch3}</td>
-                  <td style={{ padding: "10px 12px" }}>
-                    <span style={{ background: C.cyanLight, color: C.cyan, padding: "2px 8px", borderRadius: "4px", fontWeight: 600 }}>
-                      {row.safePlan}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-    </div>
+    <button onClick={onClick} style={style}>
+      {label}
+    </button>
   );
 }
 
@@ -410,12 +340,10 @@ export default function Home() {
   const [activeCase, setActiveCase]   = useState("clinic");
   const [openFaq, setOpenFaq]         = useState(null);
   const [showModal, setShowModal]     = useState(false);
-  const [mobileMenu, setMobileMenu]   = useState(false);
 
   const activeUseCase = useCases.find((u) => u.id === activeCase);
 
-  // Botpress placeholder — replace with window.botpressWebChat.open() after Session 6
-  const openQuoteBot = () => setShowModal(true);
+  const openLeadModal = () => setShowModal(true);
 
   return (
     <main style={{ fontFamily: "Inter, 'Segoe UI', sans-serif", color: C.gray, overflowX: "hidden" }}>
@@ -437,8 +365,8 @@ export default function Home() {
             style={{ background:"#fff", borderRadius:"16px", padding:"2rem", maxWidth:"580px", width:"100%", boxShadow:"0 20px 60px rgba(0,0,0,0.2)" }}>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:"1.4rem" }}>
               <div>
-                <h3 style={{ fontSize:"1.15rem", fontWeight:800, color:C.navy, marginBottom:"0.25rem" }}>Get a Quote</h3>
-                <p style={{ fontSize:"0.82rem", color:C.grayMid }}>Tell us about your business — we'll send a proposal within 1 business day.</p>
+                <h3 style={{ fontSize:"1.15rem", fontWeight:800, color:C.navy, marginBottom:"0.25rem" }}>Talk to Us About Your Business</h3>
+                <p style={{ fontSize:"0.82rem", color:C.grayMid }}>No pricing pressure — just a conversation about what's slowing your team down. We'll reply within 1 business day.</p>
               </div>
               <button onClick={() => setShowModal(false)}
                 style={{ background:"none", border:"none", cursor:"pointer", fontSize:"1.2rem", color:C.grayDim, lineHeight:1 }}>✕</button>
@@ -462,13 +390,9 @@ export default function Home() {
           {/* Desktop nav */}
           <div style={{ display:"flex", gap:"2rem", alignItems:"center" }}>
             <a href="#how-it-works" style={{ fontSize:"0.875rem", color:"rgba(255,255,255,0.8)", fontWeight:500 }}>How it Works</a>
-            <a href="#pricing"      style={{ fontSize:"0.875rem", color:"rgba(255,255,255,0.8)", fontWeight:500 }}>Pricing</a>
             <a href="#about"        style={{ fontSize:"0.875rem", color:"rgba(255,255,255,0.8)", fontWeight:500 }}>About</a>
             <a href="/contact"      style={{ fontSize:"0.875rem", color:"rgba(255,255,255,0.8)", fontWeight:500 }}>Contact</a>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer"
-              style={{ background:C.cyan, color:"#fff", padding:"0.5rem 1.2rem", borderRadius:"8px", fontSize:"0.875rem", fontWeight:700 }}>
-              Book a Call
-            </a>
+            <CTAButton compact onClick={openLeadModal} />
           </div>
         </div>
       </nav>
@@ -482,14 +406,14 @@ export default function Home() {
           <h1 style={{ fontSize:"clamp(2.1rem,5vw,3.5rem)", fontWeight:800, lineHeight:1.1, color:"#fff", marginBottom:"1.4rem", letterSpacing:"-1.5px" }}>
             Your Business Runs 24/7 —<br />While You Sleep
           </h1>
-          <p style={{ fontSize:"1.1rem", color:"#94a3b8", lineHeight:1.8, marginBottom:"2.8rem", maxWidth:"620px", margin:"0 auto 2.8rem" }}>
-            We build AI assistants that handle customer chats, book appointments, capture leads, and answer calls — so your team focuses on work that actually needs a human.
+          <p style={{ fontSize:"1.1rem", color:"#94a3b8", lineHeight:1.8, marginBottom:"1rem", maxWidth:"620px", margin:"0 auto 1rem" }}>
+            We build AI systems that handle customer chats, book appointments, protect your online reputation, and answer the questions your team doesn't have time for — so you focus on the work that actually needs a human.
+          </p>
+          <p style={{ fontSize:"0.85rem", color:"#67e8f9", marginBottom:"2.8rem" }}>
+            No pricing pressure — just a conversation about what's slowing your team down.
           </p>
           <div style={{ display:"flex", gap:"1rem", justifyContent:"center", flexWrap:"wrap" }}>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer"
-              style={{ background:C.cyan, color:"#fff", padding:"0.9rem 2rem", borderRadius:"9px", fontWeight:700, fontSize:"1rem", display:"inline-block" }}>
-              Book Free Strategy Call
-            </a>
+            <CTAButton onClick={openLeadModal} />
             <a href="#how-it-works"
               style={{ background:"rgba(255,255,255,0.08)", color:"#fff", border:"1px solid rgba(255,255,255,0.22)", padding:"0.9rem 2rem", borderRadius:"9px", fontWeight:600, fontSize:"1rem", display:"inline-block" }}>
               See How It Works
@@ -541,35 +465,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WHAT WE BUILD ── */}
+      {/* ── SOLUTIONS ── */}
       <section style={{ background:"#fff", padding:"4.5rem 2rem" }}>
-        <div style={{ maxWidth:"1000px", margin:"0 auto" }}>
+        <div style={{ maxWidth:"940px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"3rem" }}>
             <h2 style={{ fontSize:"clamp(1.5rem,3vw,2.1rem)", fontWeight:800, letterSpacing:"-0.5px", marginBottom:"0.6rem" }}>
-              AI Systems That Actually Reduce Work
+              What We Build
             </h2>
-            <p style={{ color:C.grayMid }}>We build the systems, connect the channels, and maintain everything for you.</p>
+            <p style={{ color:C.grayMid }}>Two ways we're helping businesses right now — more get added as your business grows.</p>
           </div>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(270px,1fr))", gap:"1.2rem" }}>
-            {whatWeBuild.map((f) => (
-              <div key={f.title} style={{ background:C.grayLight, borderRadius:"14px", padding:"1.5rem 1.3rem", border:`1px solid ${C.grayBorder}` }}>
-                <div style={{ fontSize:"1.6rem", marginBottom:"0.75rem" }}>{f.icon}</div>
-                <h3 style={{ fontWeight:700, fontSize:"0.95rem", marginBottom:"0.4rem" }}>{f.title}</h3>
-                <p style={{ fontSize:"0.84rem", color:C.grayMid, lineHeight:1.65 }}>{f.desc}</p>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(320px,1fr))", gap:"1.5rem" }}>
+            {solutions.map((s) => (
+              <div key={s.title} style={{ background:C.grayLight, borderRadius:"16px", padding:"2rem 1.8rem", border:`1px solid ${C.grayBorder}`, display:"flex", flexDirection:"column" }}>
+                <div style={{ fontSize:"2rem", marginBottom:"1rem" }}>{s.icon}</div>
+                <h3 style={{ fontWeight:800, fontSize:"1.15rem", marginBottom:"0.6rem" }}>{s.title}</h3>
+                <p style={{ fontSize:"0.9rem", color:C.grayMid, lineHeight:1.7, marginBottom:"1rem", flex:1 }}>{s.desc}</p>
+                <p style={{ fontSize:"0.78rem", color:C.grayDim, fontStyle:"italic", marginBottom:"1.2rem" }}>{s.linkNote}</p>
+                {s.linkHref ? (
+                  <a href={s.linkHref}
+                    style={{ color:C.cyan, fontWeight:700, fontSize:"0.9rem" }}>
+                    {s.linkLabel}
+                  </a>
+                ) : (
+                  <button onClick={openLeadModal}
+                    style={{ background:"none", border:"none", color:C.cyan, fontWeight:700, fontSize:"0.9rem", cursor:"pointer", textAlign:"left", padding:0, fontFamily:"inherit" }}>
+                    {s.linkLabel}
+                  </button>
+                )}
               </div>
             ))}
-          </div>
-          {/* Analytics highlight banner */}
-          <div style={{ marginTop:"2rem", background:C.cyanLight, border:`2px solid ${C.cyan}`, borderRadius:"14px", padding:"1.5rem 1.8rem", display:"flex", gap:"1.2rem", alignItems:"flex-start" }}>
-            <div style={{ fontSize:"2rem", flexShrink:0 }}>📊</div>
-            <div>
-              <div style={{ fontWeight:800, fontSize:"1rem", color:C.navy, marginBottom:"0.35rem" }}>
-                Monthly Performance Report — Included in Every Plan
-              </div>
-              <div style={{ fontSize:"0.88rem", color:C.gray, lineHeight:1.7 }}>
-                See exactly how your assistant is performing. Leads captured, conversations handled, peak hours, and trends — sent on the 1st of every month. No extra charge.
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -618,13 +542,10 @@ export default function Home() {
               </span>
               <h3 style={{ fontSize:"1.4rem", fontWeight:800, margin:"0.9rem 0 0.65rem", letterSpacing:"-0.3px" }}>{activeUseCase.title}</h3>
               <p style={{ color:C.grayMid, lineHeight:1.75, fontSize:"0.92rem", marginBottom:"2rem" }}>{activeUseCase.desc}</p>
-              <div style={{ display:"flex", flexDirection:"column", gap:"0.75rem" }}>
-                <button onClick={openQuoteBot}
-                  style={{ background:C.cyan, color:"#fff", border:"none", padding:"0.8rem 1.6rem", borderRadius:"9px", fontWeight:700, fontSize:"0.92rem", cursor:"pointer", textAlign:"left" }}>
-                  Get a Quote →
-                </button>
+              <div style={{ display:"flex", flexDirection:"column", gap:"0.75rem", alignItems:"flex-start" }}>
+                <CTAButton onClick={openLeadModal} />
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer"
-                  style={{ background:C.grayLight, color:C.navy, padding:"0.8rem 1.6rem", borderRadius:"9px", fontWeight:600, fontSize:"0.92rem", display:"inline-block", border:`1px solid ${C.grayBorder}` }}>
+                  style={{ background:C.white, color:C.navy, padding:"0.8rem 1.6rem", borderRadius:"9px", fontWeight:600, fontSize:"0.92rem", display:"inline-block", border:`1px solid ${C.grayBorder}` }}>
                   Book Free Strategy Call →
                 </a>
               </div>
@@ -642,12 +563,12 @@ export default function Home() {
           <h2 style={{ fontSize:"clamp(1.5rem,3vw,2.1rem)", fontWeight:800, letterSpacing:"-0.5px", marginBottom:"0.6rem" }}>
             Launch in 3 Simple Steps
           </h2>
-          <p style={{ color:C.grayMid, marginBottom:"3rem" }}>From first conversation to live AI assistant — usually under 2 weeks.</p>
+          <p style={{ color:C.grayMid, marginBottom:"3rem" }}>From first conversation to live AI system — usually under 2 weeks.</p>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"1.5rem" }}>
             {[
-              { n:"01", title:"Tell us how your business handles customer enquiries today.", desc:"We learn your workflow, your customers, and where you lose the most time." },
-              { n:"02", title:"We design and build your AI assistant workflow.", desc:"Custom flows, your knowledge base, your channels — tested before any real customer sees it." },
-              { n:"03", title:"Go live and start converting more leads — while you sleep.", desc:"Your assistant is live. We monitor, update, and report every month." },
+              { n:"01", title:"Tell us how your business handles customers today.", desc:"We learn your workflow, your customers, and where you lose the most time — or reputation." },
+              { n:"02", title:"We design and build your AI system.", desc:"Custom flows, your knowledge base, your channels — tested before any real customer sees it." },
+              { n:"03", title:"Go live and start converting more leads — while you sleep.", desc:"Your system is live. We monitor, update, and report every month." },
             ].map((s) => (
               <div key={s.n} style={{ background:C.grayLight, borderRadius:"14px", padding:"1.6rem 1.3rem", textAlign:"left", border:`1px solid ${C.grayBorder}` }}>
                 <div style={{ color:C.cyan, fontWeight:800, fontSize:"1.8rem", marginBottom:"0.65rem", fontFamily:"Manrope,sans-serif" }}>{s.n}</div>
@@ -656,165 +577,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── STANDARD FEATURES ── */}
-      <section style={{ background:C.grayLight, padding:"4.5rem 2rem" }}>
-        <div style={{ maxWidth:"1000px", margin:"0 auto" }}>
-          <div style={{ textAlign:"center", marginBottom:"3rem" }}>
-            <h2 style={{ fontSize:"clamp(1.5rem,3vw,2.1rem)", fontWeight:800, letterSpacing:"-0.5px", marginBottom:"0.6rem" }}>
-              Everything You Need — Included in Every Plan
-            </h2>
-            <p style={{ color:C.grayMid }}>No upsells. No hidden extras. Every client gets the full foundation.</p>
-          </div>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(270px,1fr))", gap:"1.2rem" }}>
-            {standardFeatures.map((f) => (
-              <div key={f.title} style={{
-                background: f.highlight ? C.cyanLight : "#fff",
-                borderRadius:"14px", padding:"1.4rem 1.3rem",
-                border: f.highlight ? `2px solid ${C.cyan}` : `1px solid ${C.grayBorder}`,
-              }}>
-                <div style={{ fontSize:"1.5rem", marginBottom:"0.6rem" }}>{f.icon}</div>
-                <div style={{ fontWeight:700, fontSize:"0.95rem", marginBottom:"0.35rem", color:C.navy }}>{f.title}</div>
-                <div style={{ fontSize:"0.84rem", color:C.grayMid, lineHeight:1.65 }}>{f.desc}</div>
-                {f.highlight && (
-                  <div style={{ fontSize:"0.78rem", color:C.cyan, fontWeight:600, marginTop:"0.5rem" }}>
-                    Sent on the 1st. See your leads and conversations.
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── PRICING ── */}
-      <section id="pricing" style={{ background:"#fff", padding:"4.5rem 2rem" }}>
-        <div style={{ maxWidth:"1100px", margin:"0 auto" }}>
-
-          {/* Heading */}
-          <div style={{ textAlign:"center", marginBottom:"2.5rem" }}>
-            <h2 style={{ fontSize:"clamp(1.5rem,3vw,2.1rem)", fontWeight:800, letterSpacing:"-0.5px", marginBottom:"0.6rem" }}>
-              Simple, Transparent Pricing
-            </h2>
-            <p style={{ color:C.grayMid, maxWidth:"560px", margin:"0 auto" }}>
-              Choose the plan that matches your channel count and volume. Setup fee is quoted individually for every build.
-            </p>
-          </div>
-
-          {/* Four plan cards */}
-          <div style={{ display:"flex", gap:"16px", flexWrap:"wrap", marginBottom:"0" }}>
-            {pricing.map((plan) => (
-              <div key={plan.name} style={{
-                background: C.white,
-                border: `${plan.highlighted ? "2px" : "1px"} solid ${plan.highlighted ? C.cyan : C.grayBorder}`,
-                borderRadius:"12px", padding:"28px",
-                flex:1, minWidth:"220px",
-                position:"relative",
-                transform: plan.highlighted ? "scale(1.02)" : "scale(1)",
-                boxShadow: plan.highlighted
-                  ? "0 8px 24px rgba(0,200,212,0.15)"
-                  : "0 2px 8px rgba(0,0,0,0.06)",
-                display:"flex", flexDirection:"column",
-              }}>
-                {/* Badge */}
-                {plan.badge && (
-                  <span style={{
-                    position:"absolute", top:"14px", right:"14px",
-                    background:C.cyan, color:C.white,
-                    fontSize:"12px", fontWeight:700,
-                    padding:"4px 10px", borderRadius:"4px",
-                  }}>{plan.badge}</span>
-                )}
-                {/* Plan name */}
-                <div style={{ fontWeight:700, fontSize:"20px", color:C.navy, marginBottom:"12px" }}>
-                  {plan.name}
-                </div>
-                {/* Credits pill */}
-                <div style={{
-                  display:"inline-block", background:C.cyanLight, color:C.cyan,
-                  fontSize:"13px", fontWeight:600, padding:"3px 10px",
-                  borderRadius:"20px", marginBottom:"12px", alignSelf:"flex-start",
-                }}>{plan.credits}</div>
-                {/* Channels */}
-                <div style={{ fontWeight:700, color:C.navy, fontSize:"15px", marginBottom:"16px" }}>
-                  📡 {plan.channels} channel{plan.channels > 1 ? "s" : ""} included
-                </div>
-                {/* Price */}
-                <div style={{ marginBottom:"8px" }}>
-                  <span style={{ fontSize:"48px", fontWeight:800, color:C.navy }}>${plan.price}</span>
-                  <span style={{ fontSize:"18px", color:C.grayMid }}>/mo</span>
-                </div>
-                {/* Mandatory note */}
-                <div style={{ fontSize:"12px", color:C.cyan, fontWeight:600, marginBottom:"6px" }}>
-                  Monthly plan required to keep your assistant running
-                </div>
-                {/* Best for */}
-                <div style={{ fontSize:"13px", color:C.grayMid, marginBottom:"24px", flex:1 }}>{plan.bestFor}</div>
-                {/* CTA */}
-                <button
-                  onClick={openQuoteBot}
-                  style={{
-                    width:"100%", background:C.cyan, color:C.white,
-                    border:"none", borderRadius:"6px",
-                    padding:"12px", fontSize:"14px", fontWeight:700,
-                    cursor:"pointer", fontFamily:"inherit",
-                  }}
-                >Get a Quote</button>
-              </div>
-            ))}
-          </div>
-
-          {/* Enterprise row */}
-          <div style={{
-            marginTop:"24px", padding:"20px 28px",
-            background:C.navy, borderRadius:"12px",
-            display:"flex", alignItems:"center",
-            justifyContent:"space-between", flexWrap:"wrap", gap:"16px",
-          }}>
-            <div>
-              <span style={{ fontWeight:700, fontSize:"18px", color:C.cyan }}>Enterprise</span>
-              <span style={{ fontSize:"14px", color:C.grayDim, marginLeft:"16px" }}>
-                Large organisations · Chains · Custom requirements
-              </span>
-            </div>
-            <div style={{ display:"flex", alignItems:"center", gap:"24px", flexWrap:"wrap" }}>
-              <span style={{ color:"#fff", fontSize:"15px" }}>Unlimited channels · Custom credits · Custom pricing</span>
-              <button
-                onClick={openQuoteBot}
-                style={{
-                  background:C.cyan, color:C.white, border:"none",
-                  borderRadius:"6px", padding:"10px 20px",
-                  fontSize:"14px", fontWeight:700, cursor:"pointer", fontFamily:"inherit",
-                }}
-              >Contact Us</button>
-            </div>
-          </div>
-
-          {/* Credit guide — collapsible */}
-          <CreditGuideTable />
-
-          {/* Setup fee note */}
-          <p style={{ textAlign:"center", color:C.grayMid, fontSize:"14px", marginTop:"24px" }}>
-            Setup fees start from <strong style={{ color:C.navy }}>$799</strong> — quoted individually based on your assistant type and complexity.
-          </p>
-
-          {/* Annual note */}
-          <p style={{ textAlign:"center", color:C.grayMid, fontSize:"14px", marginTop:"8px" }}>
-            Prefer to pay annually?{" "}
-            <span style={{ color:C.cyan, fontWeight:600 }}>Get 2 months free</span>
-            {" "}— ask us about our annual rate.
-          </p>
-
-          {/* Not sure prompt */}
-          <p style={{ textAlign:"center", marginTop:"1rem" }}>
-            <button onClick={openQuoteBot}
-              style={{ background:"none", border:"none", color:C.cyan, fontSize:"0.88rem", fontWeight:600, cursor:"pointer", fontFamily:"inherit" }}>
-              Not sure which plan? Chat with our AI to find out →
-            </button>
-          </p>
-
         </div>
       </section>
 
@@ -859,8 +621,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── PRICING (soft line — replaces table) ── */}
+      <section id="pricing" style={{ background:C.grayLight, padding:"3.5rem 2rem", textAlign:"center" }}>
+        <p style={{ fontSize:"clamp(1.1rem,2.4vw,1.4rem)", fontWeight:700, color:C.navy, marginBottom:"1.2rem" }}>
+          Every business is different — let's talk about what you need.
+        </p>
+        <CTAButton onClick={openLeadModal} />
+      </section>
+
       {/* ── FAQ ── */}
-      <section style={{ background:C.grayLight, padding:"4.5rem 2rem" }}>
+      <section style={{ background:"#fff", padding:"4.5rem 2rem" }}>
         <div style={{ maxWidth:"720px", margin:"0 auto" }}>
           <h2 style={{ fontSize:"clamp(1.5rem,3vw,2.1rem)", fontWeight:800, letterSpacing:"-0.5px", textAlign:"center", marginBottom:"2.5rem" }}>
             Frequently Asked Questions
@@ -886,17 +656,14 @@ export default function Home() {
           Ready to Stop Losing Customers to Slow Replies?
         </h2>
         <p style={{ color:"#94a3b8", fontSize:"1rem", maxWidth:"500px", margin:"0 auto 2.5rem", lineHeight:1.75 }}>
-          Let your AI assistant handle the enquiries. You focus on the work that actually needs a human.
+          Let AI handle the enquiries and protect your reputation. You focus on the work that actually needs a human.
         </p>
         <div style={{ display:"flex", gap:"1rem", justifyContent:"center", flexWrap:"wrap" }}>
+          <CTAButton onClick={openLeadModal} />
           <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer"
-            style={{ background:C.cyan, color:"#fff", padding:"0.95rem 2.2rem", borderRadius:"10px", fontWeight:700, fontSize:"1rem", display:"inline-block" }}>
+            style={{ background:"rgba(255,255,255,0.08)", color:"#fff", border:`1px solid rgba(255,255,255,0.25)`, padding:"0.9rem 2rem", borderRadius:"9px", fontWeight:600, fontSize:"1rem", display:"inline-block" }}>
             Book Free Strategy Call
           </a>
-          <button onClick={openQuoteBot}
-            style={{ background:"rgba(255,255,255,0.08)", color:"#fff", border:`1px solid rgba(255,255,255,0.25)`, padding:"0.95rem 2.2rem", borderRadius:"10px", fontWeight:600, fontSize:"1rem", cursor:"pointer" }}>
-            Get a Quote
-          </button>
         </div>
         <p style={{ marginTop:"1.5rem", fontSize:"0.78rem", color:"#64748b" }}>
           We reply to all enquiries within 1 business day · {CONTACT_EMAIL}
@@ -927,7 +694,7 @@ export default function Home() {
           </div>
           {/* Right — copyright */}
           <div style={{ textAlign:"right", fontSize:"0.78rem" }}>
-            © 2025 AutoServiceFlow.<br />All rights reserved.
+            © 2026 AutoServiceFlow.<br />All rights reserved.
           </div>
         </div>
       </footer>
